@@ -1,0 +1,24 @@
+.statistique-container {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 2px black solid;
+    border-radius: 5px;
+}
+
+.statistique-title {
+    width: 100%;
+    background-color: thistle;
+    padding-left: 15px;
+}
+
+.stat-unite {
+    width: 40vh;
+}
+
+.circle-unite {
+    width: 25px;
+    height: 25px;
+}

@@ -1,8 +1,9 @@
+import NPCFormulary from "../components/npc-formulary"
 
 function CreateNPC () {
 
     return (
-        <div>CreateNPC</div>
+        <NPCFormulary />
     )
 }
 

@@ -6,10 +6,20 @@
         "sexe": "homme",
         "taille": "1M75",
         "poids": 80,
+        "univers": "fantasy",
+        "race": "ogre",
         "picture": "https://www.pathfinder-fr.org/wiki/public/upload/Illustrations/P1/jhod.jpg",
         "background": "Coco le salé est un personnage haut en couleur avec une histoire bien sombre...",
         "description": "Il est pas  degueu, il est propre même, le sang de la veine",
-        "author": "Théo"
+        "author": "Théo",
+        "statistiques": {
+            "for": 8,
+            "dex": 5,
+            "vig": 3,
+            "int": 7,
+            "sag": 2,
+            "cha": 9
+        }
     },
     {
         "id": "756216",
@@ -18,10 +28,20 @@
         "sexe": "femme",
         "taille": "1M73",
         "poids": 70,
+        "univers": "contemporain",
+        "race": "humain",
         "picture": "https://i.pinimg.com/236x/b5/3b/32/b53b3243dafb546e32598fc2a523ab8c.jpg",
         "background": "Celia est issue d'une famille noble mais a décidé de partir à l'aventure prouver sa valeur",
         "description": "elle est grande est elancée, sa lance vous perce le coeur",
-        "author": "Dazed"
+        "author": "Dazed",
+        "statistiques": {
+            "for": 4,
+            "dex": 1,
+            "vig": 6,
+            "int": 9,
+            "sag": 7,
+            "cha": 6
+        }
     },
     {
         "id": "642869",
@@ -30,10 +50,20 @@
         "sexe": "homme",
         "taille": "1M78",
         "poids": 75,
+        "univers": "sci-fi",
+        "race": "humain",
         "picture": "https://i.pinimg.com/236x/de/f0/00/def000bca7b747581b5af57bc8bd266b.jpg",
         "background": "Lilian est un druide qui n'aime pas les animeaux. Il les enferme dans des boules rouges et blanches et les fait se battre",
         "description": "Blond aux yeux bleus, il arbore une jolie moustache",
-        "author": "Théo"
+        "author": "Théo",
+        "statistiques": {
+            "for": 9,
+            "dex": 1,
+            "vig": 6,
+            "int": 7,
+            "sag": 4,
+            "cha": 5
+        }
     },
     {
         "id": "1238545",
@@ -42,9 +72,19 @@
         "sexe": "homme",
         "taille": "2M08",
         "poids": 114,
+        "univers": "horreur",
+        "race": "demon",
         "picture": "https://planetarrakis.files.wordpress.com/2017/10/gros-ben.png?w=584",
         "background": "Roger le tavernier est né dans une taverne, et il y est resté",
         "description": "Il est grand, gros et il a des mains à planter des clous. Il faut pas faire chier Roger",
-        "author": "Dazed"
+        "author": "Dazed",
+        "statistiques": {
+            "for": 4,
+            "dex": 9,
+            "vig": 5,
+            "int": 7,
+            "sag": 3,
+            "cha": 1
+        }
     }
 ]
