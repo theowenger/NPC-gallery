@@ -22,7 +22,6 @@ import Footer from './components/footer';
 //CSS:
 import '../src/assets/css/header.css'
 
-
 function App() {
   return (
     <div>

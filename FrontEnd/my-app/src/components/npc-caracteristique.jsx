@@ -7,7 +7,6 @@ function NPCCaracteristique() {
     const { id } = useParams()
     let uniteNPC = NPC.find(i => i.id === id)
 
-    console.log(uniteNPC)
     return (
         
             <div className="caracteristique-container">

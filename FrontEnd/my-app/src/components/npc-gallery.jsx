@@ -1,11 +1,13 @@
 import NPC from "../assets/database/NPC.json"
 import { Link } from "react-router-dom"
 import "../assets/css/gallery.css"
+import fetchData from "../axios"
 
 
-console.log(NPC)
 
 function NPCGallery () {
+    
+    fetchData()
 
     return (
         <div className="gallery">
