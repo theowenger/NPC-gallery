@@ -1,18 +1,68 @@
-.card-container {
-    width: 100%;
-    background-color: azure;
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.gallery {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+}
+
+.card-container {
+    width: 80%;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    padding-top: 50px;
+    box-shadow: rgb(44, 62, 80) 15px 0px 15px -15px inset, rgb(44, 62, 80) -15px 0px 15px -15px inset;
+}
+
+.card-container a {
+    text-decoration: none;
 }
 
 .card {
-    width: 300px;
-    height: 300px;
+    width: 80vw;
+    max-width: 400px;
+    height: 600px;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center top;
     display: flex;
     margin: 30px;
     border: 1px black solid;
     border-radius: 5px;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    filter: brightness(0.9);
+}
+
+.card:hover {
+    transform: scale(1.05);
+    transition-duration: 0.2s;
+    filter: brightness(1);
+}
+
+.card:not(:hover) {
+    transform: scale(1.0);
+    transition-duration: 0.2s;
+}
+
+hover-card .card-txt {
+    margin-left: 20px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.card-txt h3 {
+    background-color: #132241c4;
+    border-radius: 5px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 2rem;
+    padding: 20px;
+    color: white;
 }

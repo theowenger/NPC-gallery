@@ -9,8 +9,10 @@ const npcSchema = mongoose.Schema({
     age: { type: Number, required: true },
     poids: { type: Number, required: true },
     taille: { type: String, required: true },
+    picture: { type: String, required: true },
     description: { type: String, required: true },
     background: { type: String, required: true },
+    author: { type: String, required: false },
     statistiques: {
         for: { type: Number, required: true },
         dex: { type: Number, required: true },

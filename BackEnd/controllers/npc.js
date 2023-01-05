@@ -25,8 +25,10 @@ exports.create = (req, res, next) => {
         age: req.body.age,
         poids: req.body.poids,
         taille: req.body.taille,
+        picture: req.body.picture,
         description: req.body.description,
         background: req.body.background,
+        author: req.body.author,
         statistiques: {
             for: req.body.statistiques.for,
             dex: req.body.statistiques.dex,

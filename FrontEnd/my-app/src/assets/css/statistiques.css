@@ -15,7 +15,9 @@
 }
 
 .stat-unite {
-    width: 40vh;
+    width: 60vh;
+    margin-left: 25px;
+    margin-right: 25px;
 }
 
 .circle-unite {
