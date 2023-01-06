@@ -1,4 +1,5 @@
 .caracteristique-container {
+    margin-top: 20px;
     width: 80%;
     display: flex;
     flex-direction: row;
@@ -11,7 +12,7 @@
 
 .caracteristique-title {
     width: 100%;
-    background-color: thistle;
+    background-color: #5da9e9ff;
     padding-left: 15px;
 }
 

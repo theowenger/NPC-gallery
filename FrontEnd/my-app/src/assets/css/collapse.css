@@ -11,13 +11,13 @@
 .collapse-card {
     width: 100%;
     margin-bottom: 50px;
-    background-color: lightgray;
+    background-color: seashell;
 }
 
 .collapse-button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: thistle;
+    background-color: #5da9e9ff;
     width: 100%;
 }

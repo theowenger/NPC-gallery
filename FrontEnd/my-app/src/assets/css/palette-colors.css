@@ -1,0 +1,26 @@
+.palette-color {
+    /* CSS HEX */
+    --cobalt-blue: #1a47a1ff;
+    --blue-jeans: #5da9e9ff;
+    --white: #fcfaf9ff;
+    --russian-green: #7a9e7eff;
+    --kombu-green: #31493cff;
+
+    /* CSS HSL */
+    --cobalt-blue: hsla(220, 72%, 37%, 1);
+    --blue-jeans: hsla(207, 76%, 64%, 1);
+    --white: hsla(20, 33%, 98%, 1);
+    --russian-green: hsla(127, 16%, 55%, 1);
+    --kombu-green: hsla(148, 20%, 24%, 1);
+
+    /* CSS Gradient */
+    --gradient-top: linear-gradient(0deg, #1a47a1ff, #5da9e9ff, #fcfaf9ff, #7a9e7eff, #31493cff);
+    --gradient-right: linear-gradient(90deg, #1a47a1ff, #5da9e9ff, #fcfaf9ff, #7a9e7eff, #31493cff);
+    --gradient-bottom: linear-gradient(180deg, #1a47a1ff, #5da9e9ff, #fcfaf9ff, #7a9e7eff, #31493cff);
+    --gradient-left: linear-gradient(270deg, #1a47a1ff, #5da9e9ff, #fcfaf9ff, #7a9e7eff, #31493cff);
+    --gradient-top-right: linear-gradient(45deg, #1a47a1ff, #5da9e9ff, #fcfaf9ff, #7a9e7eff, #31493cff);
+    --gradient-bottom-right: linear-gradient(135deg, #1a47a1ff, #5da9e9ff, #fcfaf9ff, #7a9e7eff, #31493cff);
+    --gradient-top-left: linear-gradient(225deg, #1a47a1ff, #5da9e9ff, #fcfaf9ff, #7a9e7eff, #31493cff);
+    --gradient-bottom-left: linear-gradient(315deg, #1a47a1ff, #5da9e9ff, #fcfaf9ff, #7a9e7eff, #31493cff);
+    --gradient-radial: radial-gradient(#1a47a1ff, #5da9e9ff, #fcfaf9ff, #7a9e7eff, #31493cff);
+}
