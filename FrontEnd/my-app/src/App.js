@@ -14,6 +14,8 @@ import CreateNPC from './pages/createNPC';
 import Users from './pages/users';
 import UserView from './pages/userView';
 import PageNotFound from './pages/pageNotFound';
+import Signup from "./pages/signup"
+import Login from './pages/login';
 
 //Component:
 import Header from './components/header';
@@ -33,6 +35,8 @@ function App() {
           <Route path="/NPC/:id" element={<NPCView />} />
           <Route path='/Users' element={<Users />} />
           <Route path='/User/:id' element={<UserView />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/login' element={<Login />} />
           <Route path="/about" element={<About />} />
           <Route path="/*" element={<PageNotFound />} />
         </Routes>

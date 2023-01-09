@@ -21,3 +21,16 @@
     background-color: #5da9e9ff;
     width: 100%;
 }
+
+@media screen and (min-width: 500px) {
+
+    .collapse-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .collapse-card {
+        width: 45%;
+    }
+}

@@ -7,15 +7,16 @@ function Header() {
 
   return (
     <div className="header-container">
-      <div className='header-title'>
-        <h1>NPC Gallery</h1>
+      <div className='header-navigation'>
+        <Link to='/createNPC'><h3>Creer PNJ</h3></Link>
+        <Link to='/Users'><h3>Utilisateurs</h3></Link>
       </div>
       <div className='header-logo'>
         <Link to='/'><img src={logo} alt="logo" /></Link>
       </div>
       <div className='header-navigation'>
-        <Link to='/createNPC'><h3>Creer son PNJ  </h3></Link>
-        <Link to='/'><h3>Acceuil</h3></Link>
+        <Link to='/signup'><h3>S'inscrire</h3></Link>
+        <Link to='/login'><h3>Se connecter</h3></Link>
       </div>
     </div>
   )

@@ -1,12 +1,23 @@
 const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
+const NodeRateLimiter = require('node-rate-limiter');
+const helmet = require("helmet");
 
 const npcRoutes = require('./routes/npc')
+const userRoutes = require('./routes/user')
+const path = require('path')
 
 const app = express();
 
+app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(express.json())
+
+NodeRateLimiter.defaults = {
+    rateLimit: 5000,      // default number of call for current timeframe
+    expiration: 3600000,  // default duration in ms of current timeframe
+    timeout: 500          // default timeout in ms of reset/get methods call
+};
 
 app.use((req, res, next) => {
     mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_NAME}?retryWrites=true&w=majority`,
@@ -33,5 +44,6 @@ app.use((req, res, next) => {
 
 
 app.use('/api/npc', npcRoutes);
+app.use('/api/auth', userRoutes);
 
 module.exports = app;

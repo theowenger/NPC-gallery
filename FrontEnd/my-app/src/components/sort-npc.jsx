@@ -7,16 +7,16 @@ function SortNPC({ items, setSortedItems }) {
     const handleSortChange = event => {
         const sortBy = event.target.value;
         console.log(items)
-    let sortedItems = items;
+    let sortedItems = [...items];
 
     if (sortBy === "univers") {
       sortedItems.sort((a, b) => a.univers.localeCompare(b.univers));
     } else if (sortBy === "name") {
       sortedItems.sort((a, b) => a.name.localeCompare(b.name));
     } else if (sortBy === "older") {
-      sortedItems.sort((a, b) => a.age - b.age);
+      sortedItems.sort((a, b) => a.id - b.id);
     } else if (sortBy === "younger") {
-      sortedItems.sort((a, b) => b.age - a.age);
+      sortedItems.sort((a, b) => b.id - a.id);
     } else if (sortBy === "age") {
       sortedItems.sort((a, b) => a.age - b.age);
     }

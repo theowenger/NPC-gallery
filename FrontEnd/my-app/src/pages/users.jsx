@@ -1,9 +1,11 @@
+import UsersList from "../components/users-list"
 
 function Users () {
 
     return (
-        <div>Users</div>
+        <UsersList />
     )
+    
 }
 
 export default Users
