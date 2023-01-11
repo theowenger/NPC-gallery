@@ -35,12 +35,14 @@ function UserLogin() {
       .then((data) => {
         // Connexion réussie, stocke le jeton JWT dans le stockage local et redirige l'utilisateur vers la page d'accueil
         localStorage.setItem('JWT', data.token);
+        localStorage.setItem('userId', data.userId)
         alert("Connexion reussie, vous allez etre redirigé vers la page d'acceuil");
         navigate('/');
+        window.location.reload();
       })
       .catch((error) => {
         // Connexion échouée, affiche un message d'erreur
-        alert(error.message);
+        alert(error);
       });
   }
 

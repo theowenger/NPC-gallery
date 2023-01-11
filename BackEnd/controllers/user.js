@@ -9,8 +9,8 @@ exports.getAllUsers = (req, res, next) => {
 };
 
 exports.getOneUser = (req, res, next) => {
-    console.log(req.params);
-    User.findOne({ _id: req.params.id })
+
+    User.findOne({ _id: req.auth.userId })
         .then(User => {
             console.log(User)
             res.status(200).json(User)

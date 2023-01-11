@@ -4,10 +4,10 @@ import { useRef } from 'react';
 
 function NPCFormulary() {
 
-
     const formRef = useRef();
-
+    
     function SubmitButton(e) {
+        const jwt = localStorage.getItem('JWT')
         e.preventDefault();
         const formData = new FormData(formRef.current);
         const data = Object.fromEntries(formData);
@@ -18,6 +18,7 @@ function NPCFormulary() {
 
         const transformedData = {
             id: id,
+            author: jwt, 
             name: data.lastName,
             age: data.age,
             sexe: data.sex,
@@ -28,15 +29,16 @@ function NPCFormulary() {
             picture: data.picture,
             background: data.background,
             description: data.description,
-            author: data.author,
             statistiques: statsObjects
         };
         console.log(transformedData)
+        const token = localStorage.getItem('JWT');
         fetch('http://localhost:3000/api/npc', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify(transformedData)
         })
