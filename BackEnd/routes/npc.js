@@ -6,6 +6,9 @@ const auth = require('../middleware/auth.js');
 
 router.get('/', NPCCtrl.getAllNPC);
 router.get('/:id', NPCCtrl.getOneNPC);
+
+//Route to create, modify and delete NPC
 router.post('/', auth, NPCCtrl.create);
+router.delete('/delete/:id', auth, NPCCtrl.delete);
 
 module.exports = router;

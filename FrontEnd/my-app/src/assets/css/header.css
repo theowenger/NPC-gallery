@@ -23,10 +23,15 @@
 
 }
 
+.invisible-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
 
 .header-navigation {
 
-    width: 250px;
+    width: 350px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

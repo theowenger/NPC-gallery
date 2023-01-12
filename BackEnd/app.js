@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const NodeRateLimiter = require('node-rate-limiter');
 const helmet = require("helmet");
+const cors = require('cors');
 
 const npcRoutes = require('./routes/npc')
 const userRoutes = require('./routes/user')
@@ -12,6 +13,10 @@ const app = express();
 
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(express.json())
+app.use(cors({
+    origin: "*",
+    credentials: true,
+}));
 
 NodeRateLimiter.defaults = {
     rateLimit: 5000,      // default number of call for current timeframe

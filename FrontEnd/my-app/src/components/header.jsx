@@ -63,7 +63,7 @@ function Header() {
         <div className='header-navigation'>
           {currentUser && <Link to={`/User/${currentUser._id}`}>
             <h3>Bonjour {currentUser.pseudo}</h3></Link>}
-          <button onClick={disconected}><h3>Se deconnecter</h3></button>
+            <Link to='/'><h3 onClick={disconected}>Se deconnecter</h3></Link>
         </div>
       </div>
 

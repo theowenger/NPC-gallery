@@ -1,13 +1,16 @@
 import React from 'react';
 import "../assets/css/npc-formulary.css"
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function NPCFormulary() {
 
+    const navigate = useNavigate
     const formRef = useRef();
     
     function SubmitButton(e) {
-        const jwt = localStorage.getItem('JWT')
+        const userId = localStorage.getItem('userId')
         e.preventDefault();
         const formData = new FormData(formRef.current);
         const data = Object.fromEntries(formData);
@@ -18,7 +21,7 @@ function NPCFormulary() {
 
         const transformedData = {
             id: id,
-            author: jwt, 
+            author: userId,
             name: data.lastName,
             age: data.age,
             sexe: data.sex,
@@ -31,7 +34,6 @@ function NPCFormulary() {
             description: data.description,
             statistiques: statsObjects
         };
-        console.log(transformedData)
         const token = localStorage.getItem('JWT');
         fetch('http://localhost:3000/api/npc', {
             method: 'POST',
@@ -44,134 +46,151 @@ function NPCFormulary() {
         })
             .then(response => response.json())
             .then(response => console.log(JSON.stringify(response)))
+            alert('Votre PNJ a été créé, retour à l\'acceuil')
+            navigate('/');
     }
+    const token = localStorage.getItem('JWT');
+    if (!token) {
+        // Si aucun jeton n'est présent, cela signifie que l'utilisateur n'est pas connecté
+        return (
+            <div className='no-account-container'>
+            <h2>Pour creer vos PNJ, vous devez disposer d'un compte et être connecté.</h2>
+            <p>
+                Vous n'êtes pas connecté? cliquez <Link to="/login">içi</Link>
+            </p>
+            <p>
+              Vous n'avez pas créé de compte? cliquez <Link to="/signup">içi</Link>
+            </p>
+          </div>
+        )
+    } else {
+        return (
+            <div className='formulary-container'>
+                <form ref={formRef} className='npc-formulary' id='npc-form' onSubmit={SubmitButton}>
 
-    return (
-        <div className='formulary-container'>
-            <form ref={formRef} className='npc-formulary' id='npc-form' onSubmit={SubmitButton}>
-
-                <div className='input-title-container'>
-                    <h2>Les caracteristiques:</h2>
-                    <p>definissez les caracteristiques de votre pnj</p>
-                </div>
-                <div className='input-container input-carac-container'>
-                    <label className='npc-label'>
-                        Nom:
-                        <input type="text" name="lastName" className='label-input' />
-                    </label>
-
-
-                    <label className='npc-label'>
-                        Univers:
-                        <select name="universe" className='label-input'>
-                            <option value="fantasy">Fantastique</option>
-                            <option value="sci-fi">Science Fiction</option>
-                            <option value="horror">Horreur</option>
-                            <option value="contemporain">Contemporain</option>
-                            <option value="other">Autre</option>
-                        </select>
-                    </label>
-
-
-                    <label className='npc-label'>
-                        Sexe:
-                        <select name="sex" className='label-input input-little' >
-                            <option value="male">Homme</option>
-                            <option value="female">Femme</option>
-                            <option value="no-sex">Asexué</option>
-                            <option value="other">Autre</option>
-                        </select>
-                    </label>
+                    <div className='input-title-container'>
+                        <h2>Les caracteristiques:</h2>
+                        <p>definissez les caracteristiques de votre pnj</p>
+                    </div>
+                    <div className='input-container input-carac-container'>
+                        <label className='npc-label'>
+                            Nom:
+                            <input type="text" name="lastName" className='label-input' />
+                        </label>
 
 
-                    <label className='npc-label'>
-                        Race:
-                        <input type="text" name="race" className='label-input'/>
-                    </label>
+                        <label className='npc-label'>
+                            Univers:
+                            <select name="universe" className='label-input'>
+                                <option value="fantasy">Fantastique</option>
+                                <option value="sci-fi">Science Fiction</option>
+                                <option value="horror">Horreur</option>
+                                <option value="contemporain">Contemporain</option>
+                                <option value="other">Autre</option>
+                            </select>
+                        </label>
 
 
-                    <label className='npc-label'>
-                        Age (en année):
-                        <input type="number" name="age" min={0} max={999} className='label-input input-little' />
-                    </label>
-
-                    <label className='npc-label'>
-                        Poids (en kilo):
-                        <input type="number" name="weight" min={0} max={999} className='label-input  input-little' />
-                    </label>
-
-                    <label className='npc-label'>
-                        Taille(en centimetre):
-                        <input type="number" name="height" min={0} max={999} className='label-input  input-little' />
-                    </label>
-
-                    <label className='npc-label'>
-                        Image (copier le lien):
-                        <input type="text" name="picture" className='label-input' />
-                    </label>
-                </div>
-
-                <div className='input-title-container'>
-                    <h2>Les statistiques:</h2>
-                    <p>definissez les statistiques de votre pnj</p>
-                </div>
-                <div className='input-container input-stat-container'>
-
-                    <label className="npc-label">
-                        Force:
-                        <input
-                            type="number" name="for" min={0} max={10} className="label-input input-little" />
-                    </label>
-                    <label className="npc-label">
-                        Dexterité:
-                        <input
-                            type="number" name="dex" min={0} max={10} className="label-input input-little" />
-                    </label>
-                    <label className="npc-label">
-                        Vigueur:
-                        <input
-                            type="number" name="vig" min={0} max={10} className="label-input input-little" />
-                    </label>
-                    <label className="npc-label">
-                        Intelligence:
-                        <input
-                            type="number" name="int" min={0} max={10} className="label-input input-little" />
-                    </label>
-                    <label className="npc-label">
-                        Sagesse:
-                        <input
-                            type="number" name="sag" min={0} max={10} className="label-input input-little" />
-                    </label>
-                    <label className="npc-label">
-                        Charisme:
-                        <input
-                            type="number" name="cha" min={0} max={10} className="label-input input-little" />
-                    </label>
-
-                </div>
-
-                <div className='input-title-container'>
-                    <h2>La description:</h2>
-                    <p>Decrivez votre pnj et racontez nous son histoire</p>
-                </div>
-                <div className='input-container input-background-container'>
-
-                    <label className='npc-label npc-label-background'>
-                        Description physique:
-                        <textarea name="description" className='label-input  input-tall' />
-                    </label>
+                        <label className='npc-label'>
+                            Sexe:
+                            <select name="sex" className='label-input input-little' >
+                                <option value="male">Homme</option>
+                                <option value="female">Femme</option>
+                                <option value="no-sex">Asexué</option>
+                                <option value="other">Autre</option>
+                            </select>
+                        </label>
 
 
-                    <label className='npc-label npc-label-background'>
-                        Historique:
-                        <textarea name="background" className='label-input input-tall' />
-                    </label>
-                </div>
+                        <label className='npc-label'>
+                            Race:
+                            <input type="text" name="race" className='label-input' />
+                        </label>
 
-                <input type="submit" className='submit-button' value="Creer mon PNJ" />
-            </form>
-        </div>
-    );
+
+                        <label className='npc-label'>
+                            Age (en année):
+                            <input type="number" name="age" min={0} max={999} className='label-input input-little' />
+                        </label>
+
+                        <label className='npc-label'>
+                            Poids (en kilo):
+                            <input type="number" name="weight" min={0} max={999} className='label-input  input-little' />
+                        </label>
+
+                        <label className='npc-label'>
+                            Taille(en centimetre):
+                            <input type="number" name="height" min={0} max={999} className='label-input  input-little' />
+                        </label>
+
+                        <label className='npc-label'>
+                            Image (copier le lien):
+                            <input type="text" name="picture" className='label-input' />
+                        </label>
+                    </div>
+
+                    <div className='input-title-container'>
+                        <h2>Les statistiques:</h2>
+                        <p>definissez les statistiques de votre pnj</p>
+                    </div>
+                    <div className='input-container input-stat-container'>
+
+                        <label className="npc-label">
+                            Force:
+                            <input
+                                type="number" name="for" min={0} max={10} className="label-input input-little" />
+                        </label>
+                        <label className="npc-label">
+                            Dexterité:
+                            <input
+                                type="number" name="dex" min={0} max={10} className="label-input input-little" />
+                        </label>
+                        <label className="npc-label">
+                            Vigueur:
+                            <input
+                                type="number" name="vig" min={0} max={10} className="label-input input-little" />
+                        </label>
+                        <label className="npc-label">
+                            Intelligence:
+                            <input
+                                type="number" name="int" min={0} max={10} className="label-input input-little" />
+                        </label>
+                        <label className="npc-label">
+                            Sagesse:
+                            <input
+                                type="number" name="sag" min={0} max={10} className="label-input input-little" />
+                        </label>
+                        <label className="npc-label">
+                            Charisme:
+                            <input
+                                type="number" name="cha" min={0} max={10} className="label-input input-little" />
+                        </label>
+
+                    </div>
+
+                    <div className='input-title-container'>
+                        <h2>La description:</h2>
+                        <p>Decrivez votre pnj et racontez nous son histoire</p>
+                    </div>
+                    <div className='input-container input-background-container'>
+
+                        <label className='npc-label npc-label-background'>
+                            Description physique:
+                            <textarea name="description" className='label-input  input-tall' />
+                        </label>
+
+
+                        <label className='npc-label npc-label-background'>
+                            Historique:
+                            <textarea name="background" className='label-input input-tall' />
+                        </label>
+                    </div>
+
+                    <input type="submit" className='submit-button' value="Creer mon PNJ" />
+                </form>
+            </div>
+        );
+    }
 }
 
 export default NPCFormulary;

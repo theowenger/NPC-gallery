@@ -45,3 +45,21 @@ exports.create = (req, res, next) => {
         .then(() => { res.status(201).json({ message: 'npc enregistré !' }) })
         .catch(error => { res.status(400).json({ error: "probleme" }) })
 }
+
+exports.delete = (req, res, next) => {
+    NPC.findOne({ _id: req.params.id })
+        .then(NPC => {
+            if (!NPC) {
+                res.status(401).json({ message: 'NPC non trouvé' });
+            } else if (NPC.author !== req.body.userId) {
+                res.status(401).json({ message: 'Non autorisé' });
+            } else {
+                NPC.deleteOne()
+                    .then(() => { res.status(200).json({ message: "NPC supprimé !" }); })
+                    .catch(error => res.status(401).json({ error }));
+            }
+        })
+        .catch(error => {
+            res.status(500).json({ error });
+        });
+};
