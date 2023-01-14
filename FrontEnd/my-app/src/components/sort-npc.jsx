@@ -6,7 +6,6 @@ function SortNPC({ items, setSortedItems }) {
     
     const handleSortChange = event => {
         const sortBy = event.target.value;
-        console.log(items)
     let sortedItems = [...items];
 
     if (sortBy === "univers") {

@@ -9,6 +9,8 @@ router.get('/:id', NPCCtrl.getOneNPC);
 
 //Route to create, modify and delete NPC
 router.post('/', auth, NPCCtrl.create);
+router.put('/modify/:id', auth, NPCCtrl.modify);
 router.delete('/delete/:id', auth, NPCCtrl.delete);
+
 
 module.exports = router;

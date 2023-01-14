@@ -11,6 +11,7 @@ import Index from './pages';
 import NPCView from './pages/NPCView';
 import About from './pages/about';
 import CreateNPC from './pages/createNPC';
+import ModifyNPC from './pages/modifyNPC';
 import Users from './pages/users';
 import UserView from './pages/userView';
 import PageNotFound from './pages/pageNotFound';
@@ -32,6 +33,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/createNPC" element={<CreateNPC />} />
+          <Route path="/modifyNPC" element={<ModifyNPC />} />
           <Route path="/NPC/:id" element={<NPCView />} />
           <Route path='/Users' element={<Users />} />
           <Route path='/User/:id' element={<UserView />} />

@@ -1,8 +1,10 @@
 import {fetchUsers} from "../axios";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import "../assets/css/user-list.css"
+
 
 function UsersList () {
-
     const [data, setData] = useState([])
   
     useEffect(() => {
@@ -16,14 +18,14 @@ function UsersList () {
 
 
     return (
-        <div>
+        <div className="user-container">
             <h2>Liste des utilisateurs:</h2>
+            <div className="user-list-container">
             {data.map((e) => (
-                <div key={e._id}>
-                <h3 key={e._id}>Pseudo:{e.pseudo}</h3>
+               <Link to={'/User/'+e._id} key={e._id}> <h3 key={e._id} className="user-list">Pseudo:{e.pseudo}</h3></Link>
                     
-                </div>
-            ))}
+               ))}
+               </div>
         </div>
     )
 }

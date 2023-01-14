@@ -2,23 +2,27 @@ import React from 'react';
 import "../assets/css/npc-formulary.css"
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 function NPCControl() {
     let { id } = useParams();
     const navigate = useNavigate()
     const userId = localStorage.getItem('userId')
+    const [data, setData] = useState({});
+    const [isLoading, setIsLoading] = useState(true); // Ajoutez cette ligne pour gérer l'état de chargement
 
-    fetch(`http://localhost:3000/api/npc/${id}`)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      // Utilisez les données récupérées pour afficher les informations du NPC
-      return data
-    })
-    .catch(error => {
-      console.log(error);
-    });
+    useEffect(() => {
+        fetch(`http://localhost:3000/api/npc/${id}`)
+        .then(response => response.json())
+        .then(data => {
+          setData(data);
+          setIsLoading(false); // Mettre l'état de chargement à false une fois les données sont reçues
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }, [id]);
 
     function deleteNPC() {
         // Récupérez l'ID de l'utilisateur connecté dans une variable
@@ -54,15 +58,29 @@ function NPCControl() {
                 console.log("echec de la suppression")
             });
     }
-    
-    console.log("url"+id)
-    console.log( 'storage'+ userId)
 
-    // if (.author !== userId) {
-    //     return <div>Ce personnage appartient à:</div>
-    // } else {
-        return <button className="submit-button" onClick={deleteNPC}>Supprimer</button>
-    // }
+    function modifyNPC() {
+        const NPCToModify = localStorage.setItem('npc-to-modify', JSON.stringify(data))
+        console.log(NPCToModify)
+        alert("Vous allez être redigiré vers la page de modification")
+        navigate('/modifyNPC');
+    }
+
+    if (isLoading) {
+        return <div>Chargement...</div>
+    } else {
+        if(userId !== data.author) {
+            return <div><h3>Ce NPJ appartient à :
+                {/* TODO */}
+                </h3></div>
+        }
+        return (
+        <div className='submit-button-container'>
+        <button className="submit-button" onClick={deleteNPC}>Supprimer</button>
+        <button className="submit-button" onClick={modifyNPC}>Modifier</button>
+        </div>
+        )
+    }
 }
 
 export default NPCControl

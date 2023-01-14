@@ -46,6 +46,22 @@ exports.create = (req, res, next) => {
         .catch(error => { res.status(400).json({ error: "probleme" }) })
 }
 
+exports.modify = async (req, res, next) => {
+    const NPCObject = { ...req.body };
+    const id = req.params.id;
+    const foundNPC = await NPC.findById(id);
+    if (!foundNPC) {
+        return res.status(404).json({ message: "NPC not found" });
+    }
+    if (foundNPC.author != req.auth.userId) {
+        res.status(401).json({ message: 'Not authorized' });
+        return;
+    }
+    NPC.findByIdAndUpdate(id, NPCObject)
+        .then(() => res.status(200).json({ message: 'NPC modifié !' }))
+        .catch(error => res.status(500).json({ error }));
+};
+
 exports.delete = (req, res, next) => {
     NPC.findOne({ _id: req.params.id })
         .then(NPC => {

@@ -104,26 +104,33 @@
     color: white;
 }
 
+.submit-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
 .submit-button {
 
     height: 70px;
     font-size: 1.6rem;
-    background-color: white;
+    background-color: #7a9e7eff;
     border-radius: 12px;
     border: 0;
     box-sizing: border-box;
     outline: 0;
     padding: 4px 20px 0;
-    width: 100%;
+    margin: 40px;
+    width: 50%;
     transition-duration: 0.3S;
 }
 
 .submit-button:hover {
-    background-color: #7a9e7eff;
+    background-color: #5da9e9ff;
 }
 
 .submit-button:focus {
-    background-color: #7a9e7eff;
+    background-color: #5da9e9ff;
 }
 
 .input-tall {

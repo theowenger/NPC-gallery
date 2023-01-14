@@ -25,7 +25,6 @@ function Header() {
           'Authorization': `Bearer ${token}`
         },
       });
-      console.log(response)
       setCurrentUser(response.data);
     }
     start()
@@ -33,8 +32,8 @@ function Header() {
 
   const token = localStorage.getItem('JWT');
 
+  // Si aucun jeton n'est présent, cela signifie que l'utilisateur n'est pas connecté
   if (!token) {
-    // Si aucun jeton n'est présent, cela signifie que l'utilisateur n'est pas connecté
     return (
       <div className="header-container">
         <div className='header-navigation'>
