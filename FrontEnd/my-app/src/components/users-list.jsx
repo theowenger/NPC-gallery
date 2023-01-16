@@ -22,7 +22,7 @@ function UsersList () {
             <h2>Liste des utilisateurs:</h2>
             <div className="user-list-container">
             {data.map((e) => (
-               <Link to={'/User/'+e._id} key={e._id}> <h3 key={e._id} className="user-list">Pseudo:{e.pseudo}</h3></Link>
+               <Link to={'/User/'+e._id} key={e._id}> <h3 key={e._id} className="user-list">{e.pseudo}</h3></Link>
                     
                ))}
                </div>

@@ -29,6 +29,7 @@ exports.create = (req, res, next) => {
         description: req.body.description,
         background: req.body.background,
         author: req.body.author,
+        creationDate: req.body.creationDate,
         statistiques: {
             for: req.body.statistiques.for,
             dex: req.body.statistiques.dex,

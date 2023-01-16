@@ -4,24 +4,35 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function NPCControl() {
     let { id } = useParams();
     const navigate = useNavigate()
     const userId = localStorage.getItem('userId')
     const [data, setData] = useState({});
+    const [authorName, setAuthorName] = useState('')
     const [isLoading, setIsLoading] = useState(true); // Ajoutez cette ligne pour gérer l'état de chargement
 
     useEffect(() => {
         fetch(`http://localhost:3000/api/npc/${id}`)
-        .then(response => response.json())
-        .then(data => {
-          setData(data);
-          setIsLoading(false); // Mettre l'état de chargement à false une fois les données sont reçues
-        })
-        .catch(error => {
-          console.log(error);
-        });
+            .then(response => response.json())
+            .then(data => {
+                setData(data);
+                fetch(`http://localhost:3000/api/auth/${data.author}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data.pseudo)
+                        setAuthorName(data.pseudo)
+                        setIsLoading(false);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            })
+            .catch(error => {
+                console.log(error);
+            });
     }, [id]);
 
     function deleteNPC() {
@@ -46,7 +57,7 @@ function NPCControl() {
                 if (data.message === "NPC supprimé !") {
                     // gérer l'affichage de succès 
                     alert("Votre PNJ a été supprimé")
-                    navigate('/');
+                    navigate('/index');
                 } else {
                     // gérer l'affichage d'erreur
                     alert("Probleme de suppression")
@@ -69,16 +80,14 @@ function NPCControl() {
     if (isLoading) {
         return <div>Chargement...</div>
     } else {
-        if(userId !== data.author) {
-            return <div><h3>Ce NPJ appartient à :
-                {/* TODO */}
-                </h3></div>
+        if (userId !== data.author) {
+            return <div><h3>Ce NPJ appartient à :<Link to={'/User/'+data.author}>{authorName}</Link></h3></div>
         }
         return (
-        <div className='submit-button-container'>
-        <button className="submit-button" onClick={deleteNPC}>Supprimer</button>
-        <button className="submit-button" onClick={modifyNPC}>Modifier</button>
-        </div>
+            <div className='submit-button-container'>
+                <button className="submit-button" onClick={deleteNPC}>Supprimer</button>
+                <button className="submit-button" onClick={modifyNPC}>Modifier</button>
+            </div>
         )
     }
 }

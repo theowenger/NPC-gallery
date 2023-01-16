@@ -15,6 +15,7 @@ function NPCFormulary() {
         const formData = new FormData(formRef.current);
         const data = Object.fromEntries(formData);
         const id = Date.now()
+        const date = (new Date().getTime());
         const stats = ['for', 'dex', 'vig', 'cha', 'int', 'sag'];
         const statsObjects = {};
         stats.forEach(stat => { statsObjects[stat] = data[stat] });
@@ -32,6 +33,7 @@ function NPCFormulary() {
             picture: data.picture,
             background: data.background,
             description: data.description,
+            creationDate: date,
             statistiques: statsObjects
         };
         const token = localStorage.getItem('JWT');
@@ -47,7 +49,7 @@ function NPCFormulary() {
             .then(response => response.json())
             .then(response => console.log(JSON.stringify(response)))
             alert('Votre PNJ a été créé, retour à l\'acceuil')
-            navigate('/');
+            navigate('/index');
     }
     const token = localStorage.getItem('JWT');
     if (!token) {
@@ -75,7 +77,7 @@ function NPCFormulary() {
                     <div className='input-container input-carac-container'>
                         <label className='npc-label'>
                             Nom:
-                            <input type="text" name="lastName" className='label-input' />
+                            <input type="text" name="lastName" className='label-input' required />
                         </label>
 
 
@@ -104,23 +106,23 @@ function NPCFormulary() {
 
                         <label className='npc-label'>
                             Race:
-                            <input type="text" name="race" className='label-input' />
+                            <input type="text" name="race" className='label-input' required/>
                         </label>
 
 
                         <label className='npc-label'>
                             Age (en année):
-                            <input type="number" name="age" min={0} max={999} className='label-input input-little' />
+                            <input type="number" name="age" min={0} max={999} className='label-input input-little' required/>
                         </label>
 
                         <label className='npc-label'>
                             Poids (en kilo):
-                            <input type="number" name="weight" min={0} max={999} className='label-input  input-little' />
+                            <input type="number" name="weight" min={0} max={999} className='label-input  input-little' required/>
                         </label>
 
                         <label className='npc-label'>
                             Taille(en centimetre):
-                            <input type="number" name="height" min={0} max={999} className='label-input  input-little' />
+                            <input type="number" name="height" min={0} max={999} className='label-input  input-little' required />
                         </label>
 
                         <label className='npc-label'>
@@ -138,32 +140,32 @@ function NPCFormulary() {
                         <label className="npc-label">
                             Force:
                             <input
-                                type="number" name="for" min={0} max={10} className="label-input input-little" />
+                                type="number" name="for" min={0} max={10} className="label-input input-little" required />
                         </label>
                         <label className="npc-label">
                             Dexterité:
                             <input
-                                type="number" name="dex" min={0} max={10} className="label-input input-little" />
+                                type="number" name="dex" min={0} max={10} className="label-input input-little" required />
                         </label>
                         <label className="npc-label">
                             Vigueur:
                             <input
-                                type="number" name="vig" min={0} max={10} className="label-input input-little" />
+                                type="number" name="vig" min={0} max={10} className="label-input input-little" required />
                         </label>
                         <label className="npc-label">
                             Intelligence:
                             <input
-                                type="number" name="int" min={0} max={10} className="label-input input-little" />
+                                type="number" name="int" min={0} max={10} className="label-input input-little" required />
                         </label>
                         <label className="npc-label">
                             Sagesse:
                             <input
-                                type="number" name="sag" min={0} max={10} className="label-input input-little" />
+                                type="number" name="sag" min={0} max={10} className="label-input input-little" required />
                         </label>
                         <label className="npc-label">
                             Charisme:
                             <input
-                                type="number" name="cha" min={0} max={10} className="label-input input-little" />
+                                type="number" name="cha" min={0} max={10} className="label-input input-little" required />
                         </label>
 
                     </div>
@@ -176,13 +178,13 @@ function NPCFormulary() {
 
                         <label className='npc-label npc-label-background'>
                             Description physique:
-                            <textarea name="description" className='label-input  input-tall' />
+                            <textarea name="description" className='label-input  input-tall' required/>
                         </label>
 
 
                         <label className='npc-label npc-label-background'>
                             Historique:
-                            <textarea name="background" className='label-input input-tall' />
+                            <textarea name="background" className='label-input input-tall' required/>
                         </label>
                     </div>
 

@@ -38,7 +38,7 @@ function UserSignup() {
             .then(response => response.json())
             .then(response => console.log(JSON.stringify(response)))
             alert("Merci d'avoir créé un compte, vous allez être redirigé vers la page d'acceuil")
-            navigate('/');
+            navigate('/index');
     }
 
     return (

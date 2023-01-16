@@ -37,7 +37,7 @@ function UserLogin() {
         localStorage.setItem('JWT', data.token);
         localStorage.setItem('userId', data.userId)
         alert("Connexion reussie, vous allez etre redirigé vers la page d'acceuil");
-        navigate('/');
+        navigate('/index');
         window.location.reload();
       })
       .catch((error) => {

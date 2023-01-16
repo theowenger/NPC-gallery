@@ -11,18 +11,22 @@
 .collapse-card {
     width: 100%;
     margin-bottom: 50px;
-    background-color: seashell;
+    background-color: lightgray;
+}
+
+.collapse-card h3 {
+    padding: 30px;
 }
 
 .collapse-button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #5da9e9ff;
+    background-color: #b75000;
     width: 100%;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 1000px) {
 
     .collapse-container {
         flex-direction: row;

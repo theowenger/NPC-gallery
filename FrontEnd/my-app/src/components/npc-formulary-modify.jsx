@@ -48,7 +48,7 @@ function NPCFormularyModify() {
             .then(response => response.json())
             .then(response => console.log(JSON.stringify(response)))
             alert('Votre PNJ a été modifié, retour à l\'acceuil')
-            navigate('/');
+            navigate('/index');
     }
 
         return (

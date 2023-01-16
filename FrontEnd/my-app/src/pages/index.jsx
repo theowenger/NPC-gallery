@@ -1,5 +1,4 @@
 import NPCGallery from "../components/npc-gallery"
-import SortNPC from "../components/sort-npc"
 
 function Index () {
 

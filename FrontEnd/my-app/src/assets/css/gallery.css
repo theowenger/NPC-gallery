@@ -3,14 +3,22 @@ body {
     padding: 0px;
 }
 
+
+.main-container {
+    background-color: #29231d;
+}
+
 .gallery {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     justify-content: center;
 }
 
 .card-container {
     width: 80%;
-    background-color: aliceblue;
+    background-color: #c5c5c5;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -65,4 +73,11 @@ hover-card .card-txt {
     font-size: 2rem;
     padding: 20px;
     color: white;
+}
+
+@media screen and (max-width:800px) {
+
+    .card-container {
+        width: 100%;
+    }
 }

@@ -13,6 +13,7 @@ const npcSchema = mongoose.Schema({
     description: { type: String, required: true },
     background: { type: String, required: true },
     author: { type: String, required: true },
+    creationDate: { type: String, required: true },
     statistiques: {
         for: { type: Number, required: true },
         dex: { type: Number, required: true },

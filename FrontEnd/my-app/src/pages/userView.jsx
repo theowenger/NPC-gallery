@@ -30,17 +30,22 @@ function UserView(props) {
   return (
     <div className='user-container'>
       <h2> Voici les créations de {user.pseudo}:</h2>
-      <ul className="card-container">
-      {NPCs.map(e => 
-         <Link to={'/NPC/'+e._id} key={e._id} >
-         <li key={e._id} className="card"  style={{ backgroundImage: `url(${e.picture})`}}>
-             <div className='card-txt'><h3 key={e.name}>{e.name}</h3></div>
-         </li>
-         </Link>
-        )}
+      {NPCs.length === 0 ? (
+        <div><h3 className='card-txt'>{user.pseudo} n'a pas encore de créations.</h3></div>
+      ) : (
+        <ul className="card-container">
+          {NPCs.map(e => (
+            <Link to={'/NPC/' + e._id} key={e._id}>
+              <li key={e._id} className="card" style={{ backgroundImage: `url(${e.picture})` }}>
+                <div className="card-txt">
+                  <h3 key={e.name}>{e.name}</h3>
+                </div>
+              </li>
+            </Link>
+          ))}
         </ul>
+      )}
     </div>
-  )
+  );
 }
-
 export default UserView
