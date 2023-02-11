@@ -18,7 +18,7 @@ body {
 
 .card-container {
     width: 80%;
-    background-color: #c5c5c5;
+    background-color: white;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -27,6 +27,7 @@ body {
     margin: 0;
     padding: 0;
     padding-top: 50px;
+    border-radius: 10px;
     box-shadow: rgb(44, 62, 80) 15px 0px 15px -15px inset, rgb(44, 62, 80) -15px 0px 15px -15px inset;
 }
 

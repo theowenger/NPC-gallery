@@ -1,0 +1,74 @@
+.landing-container {
+    background-color: aliceblue;
+    width: 80%;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.npc-banner {
+    width: 100%;
+    background-size: cover;
+    margin-bottom: 50px;
+    border-radius: 5px;
+}
+
+.landing-description {
+    width: 50%;
+}
+
+.landing-description a {
+    text-decoration: none;
+}
+
+
+.landing-card {
+    width: 100%;
+    margin-bottom: 50px;
+    border: 1px black solid;
+    border-radius: 5px;
+}
+
+.landing-card h3 {
+    padding: 30px;
+}
+
+.landing-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #b75000;
+    color: white;
+    border-radius: 5px;
+}
+
+.landing-link {
+    text-align: center;
+    padding: 20px;
+    background-color: #c5c5c5;
+    color: #b75000;
+    border-radius: 5px;
+    font-size: 1.6em;
+    transition-duration: 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.landing-link:hover {
+    background-color: #b75000;
+    transform: scale(1.05);
+    color: #c5c5c5;
+}
+
+@media screen and (max-width:800px) {
+
+    .landing-container {
+        width: 100%;
+    }
+
+    .landing-description {
+        width: 90%;
+    }
+}

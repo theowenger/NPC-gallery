@@ -81,7 +81,7 @@ function NPCControl() {
         return <div>Chargement...</div>
     } else {
         if (userId !== data.author) {
-            return <div><h3>Ce NPJ appartient à :<Link to={'/User/'+data.author}>{authorName}</Link></h3></div>
+            return <div><h3 className='npc-author'>Ce NPJ appartient à <Link to={'/User/'+data.author}>{authorName}</Link></h3></div>
         }
         return (
             <div className='submit-button-container'>

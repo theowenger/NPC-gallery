@@ -5,18 +5,21 @@
     flex-wrap: wrap;
     justify-content: center;
     border: 2px black solid;
-    background-color: #c5c5c5;
+    background-color: white;
     border-radius: 5px;
+    border-radius: 10px;
 }
 
 .statistique-title {
     width: 100%;
     background-color: #b75000;
     padding-left: 15px;
+    color: white;
+    border-radius: 10px 10px 0px 0px;
 }
 
+
 .stat-unite {
-    width: 60vh;
     margin-left: 25px;
     margin-right: 25px;
 }

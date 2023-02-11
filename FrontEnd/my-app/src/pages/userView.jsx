@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 function UserView(props) {
-    let { id } = useParams();
+  let { id } = useParams();
   const [user, setUser] = useState({});
   const [NPCs, setNPCs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -31,7 +31,9 @@ function UserView(props) {
     <div className='user-container'>
       <h2> Voici les créations de {user.pseudo}:</h2>
       {NPCs.length === 0 ? (
-        <div><h3 className='card-txt'>{user.pseudo} n'a pas encore de créations.</h3></div>
+        <div className='user-container-empty'>
+          <h3 className='card-txt'>{user.pseudo} n'a pas encore de créations.</h3>
+        </div>
       ) : (
         <ul className="card-container">
           {NPCs.map(e => (

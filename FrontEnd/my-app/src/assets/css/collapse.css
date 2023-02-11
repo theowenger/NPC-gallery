@@ -11,7 +11,8 @@
 .collapse-card {
     width: 100%;
     margin-bottom: 50px;
-    background-color: lightgray;
+    background-color: white;
+    border-radius: 5px;
 }
 
 .collapse-card h3 {
@@ -23,7 +24,18 @@
     align-items: center;
     justify-content: space-between;
     background-color: #b75000;
+    color: white;
     width: 100%;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.npc-author {
+    color: white;
+}
+
+.npc-author a {
+    color: white;
+    text-decoration: none;
 }
 
 @media screen and (min-width: 1000px) {
