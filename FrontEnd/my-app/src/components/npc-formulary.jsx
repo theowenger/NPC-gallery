@@ -30,8 +30,14 @@ function NPCFormulary() {
             poids: data.weight,
             univers: data.universe,
             race: data.race,
-            picture: data.picture,
+            picture: data.picture || 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Question_mark_alternate.svg/1200px-Question_mark_alternate.svg.png',
             background: data.background,
+            objectif: data.objectif,
+            job: data.job,
+            quote: data.quote,
+            fightComportement: data.fightComportement,
+            equipement: data.equipement,
+            pnjLink: data.pnjLink,
             description: data.description,
             creationDate: date,
             statistiques: statsObjects
@@ -133,7 +139,7 @@ function NPCFormulary() {
 
                     <div className='input-title-container'>
                         <h2>Les statistiques:</h2>
-                        <p>definissez les statistiques de votre pnj</p>
+                        <p>definissez les statistiques de votre pnj (de 0 à 10)</p>
                     </div>
                     <div className='input-container input-stat-container'>
 
@@ -185,6 +191,36 @@ function NPCFormulary() {
                         <label className='npc-label npc-label-background'>
                             Historique:
                             <textarea name="background" className='label-input input-tall' required/>
+                        </label>
+                    </div>
+
+                    <div className='input-title-container'>
+                        <h2>Informations Complementaires:</h2>
+                        <p>Rajoutez de la consistance à votre creation:</p>
+
+                        <label className='npc-label npc-label-background'>
+                            Objectif:
+                            <textarea name="objectif" className='label-input input-tall'/>
+                        </label>
+                        <label className='npc-label npc-label-background'>
+                            Profession:
+                            <textarea name="job" className='label-input input-tall'/>
+                        </label>
+                        <label className='npc-label npc-label-background'>
+                            Citations:
+                            <textarea name="quote" className='label-input input-tall'/>
+                        </label>
+                        <label className='npc-label npc-label-background'>
+                            comportement en combat:
+                            <textarea name="fightComportement" className='label-input input-tall'/>
+                        </label>
+                        <label className='npc-label npc-label-background'>
+                            equipements:
+                            <textarea name="equipement" className='label-input input-tall'/>
+                        </label>
+                        <label className='npc-label npc-label-background'>
+                            Liens avec d'autres PNJ:
+                            <textarea name="pnjLink" className='label-input input-tall'/>
                         </label>
                     </div>
 

@@ -20,6 +20,7 @@ function NPCStatistique() {
       const response = await fetchData(id);
       if (response.status === 200) {
         setData(response.data);
+        console.log(response.data.likes)
       }
     };
     fetch();

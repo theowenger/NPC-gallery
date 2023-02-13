@@ -39,7 +39,6 @@
 
 .input-title-container {
     width: 100%;
-    line-height: 15px;
 }
 
 .input-title-container p {
@@ -139,7 +138,7 @@
 }
 
 .input-tall {
-    height: 380px;
+    height: 300px;
 }
 
 @media screen and (max-width:500px) {

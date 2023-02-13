@@ -32,6 +32,12 @@ function NPCFormularyModify() {
             race: data.race,
             picture: data.picture,
             background: data.background,
+            objectif: data.objectif,
+            job: data.job,
+            quote: data.quote,
+            fightComportement: data.fightComportement,
+            equipement: data.equipement,
+            pnjLink: data.pnjLink,
             description: data.description,
             statistiques: statsObjects
         };
@@ -172,6 +178,37 @@ function NPCFormularyModify() {
                             <textarea name="background" className='label-input input-tall' defaultValue={NPCModify.background}/>
                         </label>
                     </div>
+
+                    <div className='input-title-container'>
+                        <h2>Informations Complementaires:</h2>
+                        <p>Rajoutez de la consistance à votre creation:</p>
+
+                        <label className='npc-label npc-label-background'>
+                            Objectif:
+                            <textarea name="objectif" className='label-input input-tall' defaultValue={NPCModify.objectif}/>
+                        </label>
+                        <label className='npc-label npc-label-background'>
+                            Profession:
+                            <textarea name="job" className='label-input input-tall' defaultValue={NPCModify.job}/>
+                        </label>
+                        <label className='npc-label npc-label-background'>
+                            Citations:
+                            <textarea name="quote" className='label-input input-tall'/>
+                        </label>
+                        <label className='npc-label npc-label-background'>
+                            comportement en combat:
+                            <textarea name="fightComportement" className='label-input input-tall' defaultValue={NPCModify.fightComportement}/>
+                        </label>
+                        <label className='npc-label npc-label-background'>
+                            equipements:
+                            <textarea name="equipement" className='label-input input-tall' defaultValue={NPCModify.equipement}/>
+                        </label>
+                        <label className='npc-label npc-label-background'>
+                            Liens avec d'autres PNJ:
+                            <textarea name="pnjLink" className='label-input input-tall' defaultValue={NPCModify.pnjLink}/>
+                        </label>
+                    </div>
+
 
                     <input type="submit" className='submit-button' value="Modifier mon PNJ" />
                 </form>

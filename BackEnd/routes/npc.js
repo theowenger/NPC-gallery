@@ -13,4 +13,8 @@ router.put('/modify/:id', auth, NPCCtrl.modify);
 router.delete('/delete/:id', auth, NPCCtrl.delete);
 
 
+//Route to like and dislike NPC:
+router.post('/like/:id', auth, NPCCtrl.like);
+router.put('/like/:id', auth, NPCCtrl.dislike)
+
 module.exports = router;

@@ -28,6 +28,12 @@ exports.create = (req, res, next) => {
         picture: req.body.picture,
         description: req.body.description,
         background: req.body.background,
+        objectif: req.body.objectif,
+        job: req.body.job,
+        quote: req.body.quote,
+        fightComportement: req.body.fightComportement,
+        equipement: req.body.equipement,
+        pnjLink: req.body.pnjLink,
         author: req.body.author,
         creationDate: req.body.creationDate,
         statistiques: {
@@ -80,3 +86,29 @@ exports.delete = (req, res, next) => {
             res.status(500).json({ error });
         });
 };
+
+exports.like = async (req, res, next) => {
+    const npc = await NPC.findById(req.params.id);
+    if (!npc) return res.status(404).send('PNJ introuvable');
+
+    if (npc.likedBy.includes(req.user._id)) return res.status(400).send('Vous avez déjà aimé ce PNJ');
+
+    npc.likes++;
+    npc.likedBy.push(req.user._id);
+    await npc.save();
+
+    res.send(npc);
+}
+
+exports.dislike = async (req, res, next) => {
+    const npc = await NPC.findById(req.params.id);
+    if (!npc) return res.status(404).send('PNJ introuvable');
+
+    if (!npc.likedBy.includes(req.user._id)) return res.status(400).send('Vous avez déjà aimé ce PNJ');
+
+    npc.likes--;
+    npc.likedBy.remove(req.user._id);
+    await npc.save();
+
+    res.send(npc);
+}

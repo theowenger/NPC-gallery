@@ -5,6 +5,7 @@ import {fetchData} from "../axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import SortNPC from "../components/sort-npc";
+import SearchNPC from "./search-npc";
   
 
 function NPCGallery () {
@@ -20,9 +21,12 @@ function NPCGallery () {
       fetch();
     }, [])
 
+    
+
 
     return (
         <>
+        <SearchNPC items={sortedData} setSortedItems={setSortedData} />
         <SortNPC items={sortedData} setSortedItems={setSortedData} />
         <div className="gallery">
             <ul className="card-container">
