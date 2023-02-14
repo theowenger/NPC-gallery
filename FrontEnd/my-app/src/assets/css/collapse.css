@@ -1,6 +1,5 @@
 .collapse-container {
-    margin-top: 25px;
-    margin-bottom: 25px;
+
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -10,7 +9,8 @@
 
 .collapse-card {
     width: 100%;
-    margin-bottom: 50px;
+    margin-top: 25px;
+    margin-bottom: 25px;
     background-color: white;
     border-radius: 5px;
 }

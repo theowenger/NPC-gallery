@@ -28,7 +28,7 @@ const npcSchema = mongoose.Schema({
         sag: { type: Number, required: true },
         cha: { type: Number, required: true }
     },
-    likes: { type: Number, default: 1 },
+    likes: { type: Number, default: 0 },
     likedBy: [String]
 
 });

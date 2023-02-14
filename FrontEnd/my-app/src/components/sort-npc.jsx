@@ -18,7 +18,9 @@ function SortNPC({ items, setSortedItems }) {
       sortedItems.sort((a, b) => b.creationDate - a.creationDate);
     } else if (sortBy === "age") {
       sortedItems.sort((a, b) => a.age - b.age);
-    }
+    } else if (sortBy === "likes") {
+    sortedItems.sort((a, b) => a.likes + b.likes);
+  }
 
     setSortedItems(sortedItems);
   };
@@ -35,6 +37,7 @@ function SortNPC({ items, setSortedItems }) {
         >
           <option value="younger">plus récent</option>
           <option value="older">plus ancien</option>
+          <option value="likes">Nombre de likes</option>          
           <option value="univers">univers</option>
           <option value="name">nom</option>
           <option value="age">age</option>

@@ -91,23 +91,14 @@ exports.like = async (req, res, next) => {
     const npc = await NPC.findById(req.params.id);
     if (!npc) return res.status(404).send('PNJ introuvable');
 
-    if (npc.likedBy.includes(req.user._id)) return res.status(400).send('Vous avez déjà aimé ce PNJ');
-
-    npc.likes++;
-    npc.likedBy.push(req.user._id);
-    await npc.save();
-
-    res.send(npc);
-}
-
-exports.dislike = async (req, res, next) => {
-    const npc = await NPC.findById(req.params.id);
-    if (!npc) return res.status(404).send('PNJ introuvable');
-
-    if (!npc.likedBy.includes(req.user._id)) return res.status(400).send('Vous avez déjà aimé ce PNJ');
-
-    npc.likes--;
-    npc.likedBy.remove(req.user._id);
+    const index = npc.likedBy.indexOf(req.auth.userId);
+    if (index !== -1) {
+        npc.likes--;
+        npc.likedBy.splice(index, 1);
+    } else {
+        npc.likes++;
+        npc.likedBy.push(req.auth.userId);
+    }
     await npc.save();
 
     res.send(npc);
